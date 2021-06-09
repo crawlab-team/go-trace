@@ -4,12 +4,16 @@ import "github.com/ztrue/tracerr"
 
 func PrintError(err error) {
 	err = tracerr.Wrap(err)
-	tracerr.Print(err)
+	if err != nil {
+		tracerr.Print(err)
+	}
 }
 
 func TraceError(err error) error {
 	err = tracerr.Wrap(err)
-	tracerr.Print(err)
+	if err != nil {
+		tracerr.Print(err)
+	}
 	return err
 }
 
